@@ -6,3 +6,5 @@ async function bootstrap() {
   await app.listen(3000);
 }
 bootstrap();
+
+//c/data "C:\Program Files\MongoDB\Server\4.2\bin\mongod.exe"
