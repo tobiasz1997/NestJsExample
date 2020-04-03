@@ -6,8 +6,12 @@ import { ProductsModule } from './products/product.module';
 
 @Module({
   imports: [
-    ProductsModule, 
-    MongooseModule.forRoot('mongodb://localhost/NestJsExample', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+    ProductsModule,
+    MongooseModule.forRoot('mongodb://localhost/NestJsExample', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
