@@ -7,7 +7,7 @@ import { Model } from "mongoose";
 export class ProductsService {
     products: Product[] = [];
 
-    constructor(@InjectModel('Product') private readonly productModel: Model<Product>) {}
+    constructor(@InjectModel('Product') private readonly productModel: Model<Product>) { }
 
     private async findProduct(id: string): Promise<Product> {
         let product;
@@ -25,7 +25,7 @@ export class ProductsService {
     }
 
     async insertProduct(title: string, desc: string, price: number): Promise<string> {
-        const newProduct = new this.productModel({title: title, description: desc, price: price});
+        const newProduct = new this.productModel({ title: title, description: desc, price: price });
         const result = await newProduct.save();
 
         return result.id as string;
@@ -68,8 +68,8 @@ export class ProductsService {
     }
 
     async deleteProduct(prodId: string) {
-        const result = await this.productModel.deleteOne({_id: prodId}).exec();
-        if(result.n === 0){
+        const result = await this.productModel.deleteOne({ _id: prodId }).exec();
+        if (result.n === 0) {
             throw new NotFoundException('Could not find product');
         }
     }
